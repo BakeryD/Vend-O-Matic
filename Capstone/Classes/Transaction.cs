@@ -4,15 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Capstone
+namespace Capstone.Classes
 {
-    public class Program
+    public class Transaction
     {
-        static void Main(string[] args)
-        {
-
-
-
-        }
     }
 }
