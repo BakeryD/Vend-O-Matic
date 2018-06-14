@@ -20,7 +20,7 @@ namespace Capstone
           var inventory=  fr.Stock();
             VendingMachine vm = new VendingMachine(inventory);
 
-            Console.WriteLine(vm.Inventory);
+            Console.WriteLine(vm.DisplayAll());
 
         }
     }
