@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Capstone.CLIs;
 
 namespace Capstone.Classes
 {
@@ -11,6 +12,10 @@ namespace Capstone.Classes
         public Dictionary<string,List<VMItem>> Inventory { get; private set; }
 
         public int Balance { get; private set; }
+
+
+
+        MainMenu mainMenu = new MainMenu();
 
 
        // public Transaction BuyItem(string location,)

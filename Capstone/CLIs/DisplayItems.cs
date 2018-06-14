@@ -14,9 +14,14 @@ namespace Capstone.CLIs
             {
                 Console.WriteLine();
                 Console.WriteLine("SubMenu 1");
+<<<<<<< HEAD
                 Console.WriteLine();
                 Console.WriteLine("     1 - okay, I know what I want");
                 Console.WriteLine("     n - nvm, I'm good(quit)");
+=======
+                Console.WriteLine("     1 - okay, I know what I want");   // Display Inventory
+                Console.WriteLine("     b - nvm, I'm good");
+>>>>>>> f3a42062cc204ce652b204688c91443142d6c7b2
 
                 Console.Write("What option do you want to select? ");
                 string input = Console.ReadLine();
