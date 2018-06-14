@@ -16,9 +16,12 @@ namespace Capstone
             MainMenu mainmenu = new MainMenu();
             mainmenu.Display(); // <-- tells main menu to display first
 
+
+            //
             FileReader fr = new FileReader();
-          var inventory=  fr.Stock();
+            var inventory=  fr.Stock();
             VendingMachine vm = new VendingMachine(inventory);
+
 
             Console.WriteLine(vm.DisplayAll());
 
