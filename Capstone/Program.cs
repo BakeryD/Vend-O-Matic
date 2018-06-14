@@ -14,7 +14,7 @@ namespace Capstone
             FileReader fr = new FileReader();
           var inventory=  fr.Stock();
             VendingMachine vm = new VendingMachine(inventory);
-
+            Console.WriteLine(vm.Inventory);
         }
     }
 }

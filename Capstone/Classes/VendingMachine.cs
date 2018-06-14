@@ -8,7 +8,7 @@ namespace Capstone.Classes
 {
   public  class VendingMachine
     {
-        public Dictionary<string,List<VMItem>> Inventory { get; }
+        public Dictionary<string,List<VMItem>> Inventory { get; private set; }
 
         public int Balance { get; private set; }
 
@@ -19,7 +19,20 @@ namespace Capstone.Classes
         {
             this.Inventory = inventory;
         }
+        //public Transaction BuyItem()
+        //{
 
+
+
+        //}
+        //public string DisplayAll()
+        //{
+        //    foreach (var item in collection)
+        //    {
+
+        //    }
+
+        //}
 
 
 

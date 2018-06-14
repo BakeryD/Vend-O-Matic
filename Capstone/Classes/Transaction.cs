@@ -8,5 +8,9 @@ namespace Capstone.Classes
 {
     public class Transaction
     {
+
+
+
+
     }
 }
