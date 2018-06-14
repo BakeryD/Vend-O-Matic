@@ -43,9 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="CLIs\DisplayItems.cs" />
     <Compile Include="CLIs\MainMenu.cs" />
     <Compile Include="CLIs\Purchase.cs" />
+=======
+    <Compile Include="Classes\ItemType.cs" />
+    <Compile Include="Classes\FileReader.cs" />
+    <Compile Include="Classes\Transaction.cs" />
+    <Compile Include="Classes\UserInterface.cs" />
+    <Compile Include="Classes\VMItem.cs" />
+    <Compile Include="Classes\VendingMachine.cs" />
+>>>>>>> 73f9b3778d95b15467234f03d511a21132a08f7f
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
