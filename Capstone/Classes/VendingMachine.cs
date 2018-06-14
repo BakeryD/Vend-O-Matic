@@ -19,20 +19,21 @@ namespace Capstone.Classes
         {
             this.Inventory = inventory;
         }
-        //public Transaction BuyItem()
-        //{
+        public Transaction BuyItem()
+        {
 
+            return null;
 
+        }
+        public string DisplayAll()
+        {
+            foreach (var item in Inventory)
+            {
+                
 
-        //}
-        //public string DisplayAll()
-        //{
-        //    foreach (var item in collection)
-        //    {
-
-        //    }
-
-        //}
+            }
+            return null;
+        }
 
 
 
