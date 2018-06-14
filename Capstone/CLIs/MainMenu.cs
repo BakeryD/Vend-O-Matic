@@ -16,7 +16,7 @@ namespace Capstone.CLIs
             {
                 Console.WriteLine();
                 Console.WriteLine("Do you need to...");
-                Console.WriteLine(" 1 - figure out what you want?");
+                Console.WriteLine(" 1 - figure out what you want?");  
                 Console.WriteLine(" 2 - nah, just gimme the food.");
                 Console.WriteLine(" b - nvm, I'm good");
 
