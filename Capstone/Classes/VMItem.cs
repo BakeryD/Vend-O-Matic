@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Capstone.Classes
 {
-    public class VendingMachineItem
+    public class VMItem
     {
     }
 }

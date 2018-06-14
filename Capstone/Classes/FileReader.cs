@@ -11,7 +11,7 @@ namespace Capstone.Classes
 
         public string Path { get; }
 
-
+        public Dictionary<string,>
 
 
 

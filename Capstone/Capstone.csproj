@@ -46,7 +46,7 @@
     <Compile Include="Classes\FileReader.cs" />
     <Compile Include="Classes\Transaction.cs" />
     <Compile Include="Classes\UserInterface.cs" />
-    <Compile Include="Classes\VendinMachineItem.cs" />
+    <Compile Include="Classes\VMItem.cs" />
     <Compile Include="Classes\VendingMachine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
