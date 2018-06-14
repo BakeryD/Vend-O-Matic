@@ -12,13 +12,24 @@ namespace Capstone
     {
         static void Main(string[] args)
         {
-
-            MainMenu mainmenu = new MainMenu();
-            mainmenu.Display(); // <-- tells main menu to display first
-
             FileReader fr = new FileReader();
-          var inventory=  fr.Stock();
+
+
+            Dictionary<string, List<VMItem>> inventory = fr.Stock();
+
+
             VendingMachine vm = new VendingMachine(inventory);
+
+            
+
+            //MainMenu mainmenu = new MainMenu();
+            MainMenu.Display(); // <-- tells main menu to display first
+
+
+
+
+
+
 
             Console.WriteLine(vm.DisplayAll());
 

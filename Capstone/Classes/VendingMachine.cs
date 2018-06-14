@@ -13,9 +13,9 @@ namespace Capstone.Classes
 
         public int Balance { get; private set; }
 
+        
 
-
-        MainMenu mainMenu = new MainMenu();
+        
 
 
        // public Transaction BuyItem(string location,)

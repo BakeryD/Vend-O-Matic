@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Capstone.CLIs
 {
-    public class MainMenu
+    public static class MainMenu
     {
-        public void Display()
+        public static void Display()
         {
             PrintHeader();
 
@@ -25,8 +25,7 @@ namespace Capstone.CLIs
 
                 if (input == "1")
                 {
-                    DisplayItems submenu = new DisplayItems();
-                    submenu.Display();
+                    DisplayItems.Display();
                 }
                 else if (input == "2")
                 {
@@ -45,7 +44,7 @@ namespace Capstone.CLIs
             }
         }
 
-        private void PrintHeader()
+        private static void PrintHeader()
         {
 
             Console.WriteLine("WELCOME TO THE TECH ELEVATOR CAFETERIA");

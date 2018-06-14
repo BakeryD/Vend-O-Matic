@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Capstone.CLIs
 {
-    public class DisplayItems
+    public static class DisplayItems
     {
-        public void Display()
+        public static void Display()
         {
             while (true)
             {
+                
                 Console.WriteLine();
                 Console.WriteLine("SubMenu 1");
                 Console.WriteLine("     1 - okay, I know what I want");   // Display Inventory
