@@ -27,12 +27,36 @@ namespace Capstone.Classes
         }
         public string DisplayAll()
         {
+
+            int Qty = 0;
+           string output=null;
+
             foreach (var item in Inventory)
             {
-                
+                string currentKey = item.Key;
+                output += currentKey+"\t";
+                var currentSlot = item.Value;
+
+                for (int i = 0; i < currentSlot.Count; i++)
+                {
+                    if (i==0)
+                    {
+                        output += currentSlot[i].Name + "\t" + currentSlot[i].Price.ToString() + "\t";
+                    }
+                    else
+                    {
+                        Qty++;
+                    }
+
+
+                }
+
+                output += Qty.ToString()+"\n\r ";
+                Qty = 0;
+
 
             }
-            return null;
+            return output;
         }
 
 
