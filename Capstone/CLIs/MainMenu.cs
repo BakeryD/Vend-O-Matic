@@ -16,9 +16,15 @@ namespace Capstone.CLIs
             {
                 Console.WriteLine();
                 Console.WriteLine("Do you need to...");
+<<<<<<< HEAD
+                Console.WriteLine("     1 - figure out what you want?");
+                Console.WriteLine("     2 - nah, just gimme the food.");
+                Console.WriteLine("     n - nvm, I'm good");
+=======
                 Console.WriteLine(" 1 - figure out what you want?");  
                 Console.WriteLine(" 2 - nah, just gimme the food.");
                 Console.WriteLine(" b - nvm, I'm good");
+>>>>>>> f3a42062cc204ce652b204688c91443142d6c7b2
 
                 Console.Write("I'd like to ");
                 string input = Console.ReadLine();
@@ -32,7 +38,7 @@ namespace Capstone.CLIs
                     Purchase submenu = new Purchase();
                     submenu.Display();
                 }
-                else if (input == "b")
+                else if (input == "n")
                 {
                     Console.WriteLine("Bye, Felicia");
                     break;

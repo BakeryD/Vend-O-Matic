@@ -15,8 +15,10 @@ namespace Capstone.CLIs
                 
                 Console.WriteLine();
                 Console.WriteLine("SubMenu 1");
-                Console.WriteLine("     1 - okay, I know what I want");   // Display Inventory
-                Console.WriteLine("     b - nvm, I'm good");
+                Console.WriteLine();
+                Console.WriteLine("     1 - okay, I know what I want");
+                Console.WriteLine("     n - nvm, I'm good(quit)");
+
 
                 Console.Write("What option do you want to select? ");
                 string input = Console.ReadLine();
@@ -27,7 +29,7 @@ namespace Capstone.CLIs
                     submenu.Display();
                 }
 
-                else if (input == "b")
+                else if (input == "n")
                 {
                     Console.WriteLine("Bye, Felicia");
                     break; //<-- breaks off the whileloop and because it's the end of the line for the entire method so it pops off the stack and returns to the main menu

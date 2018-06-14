@@ -18,6 +18,7 @@ namespace Capstone
             Dictionary<string, List<VMItem>> inventory = fr.Stock();
 
 
+<<<<<<< HEAD
             VendingMachine vm = new VendingMachine(inventory);
 
             
@@ -30,6 +31,14 @@ namespace Capstone
 
 
 
+=======
+
+            //
+            FileReader fr = new FileReader();
+            var inventory=  fr.Stock();
+            VendingMachine vm = new VendingMachine(inventory);
+
+>>>>>>> 2447354d6149bbf2496103a163fedcc865fca857
 
             Console.WriteLine(vm.DisplayAll());
 
