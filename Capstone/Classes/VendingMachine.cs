@@ -8,12 +8,17 @@ namespace Capstone.Classes
 {
   public  class VendingMachine
     {
-        public Dictionary<string,VendingMachineItem> Inventory { get; private set; }
+        public Dictionary<string,List<VMItem>> Inventory { get; }
 
         public int Balance { get; private set; }
 
 
        // public Transaction BuyItem(string location,)
+
+        public VendingMachine(Dictionary<string, List<VMItem>> inventory)
+        {
+            this.Inventory = inventory;
+        }
 
 
 
