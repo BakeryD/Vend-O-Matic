@@ -14,6 +14,7 @@ namespace Capstone.CLIs
             {
                 Console.WriteLine();
                 Console.WriteLine("SubMenu 1");
+                Console.WriteLine()
                 Console.WriteLine("     1 - okay, I know what I want");
                 Console.WriteLine("     b - nvm, I'm good");
 
