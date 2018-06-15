@@ -15,6 +15,8 @@ namespace Capstone.Classes
 
         public List<Transaction> TransactionLog { get; private set; }
 
+        public List<VMItem> ItemsBought { get; private set; }
+
 
 
 
@@ -36,6 +38,7 @@ namespace Capstone.Classes
         public VendingMachine(Dictionary<string, List<VMItem>> inventory)
         {
             this.Inventory = inventory;
+            ItemsBought = new List<VMItem>();
         }
 
 
@@ -43,6 +46,7 @@ namespace Capstone.Classes
         public Transaction BuyItem(string userSelection)
         {
             var itemToBuy = Inventory[userSelection][0];
+            this.ItemsBought.Add(itemToBuy);
             this.Inventory[userSelection].Remove(itemToBuy);
             Balance -= itemToBuy.Price;
             Transaction itemSold = new Transaction(itemToBuy);

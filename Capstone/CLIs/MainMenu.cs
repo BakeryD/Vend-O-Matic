@@ -17,6 +17,8 @@ namespace Capstone.CLIs
 
             while (true)
             {
+                Console.Clear();
+
                 Console.WriteLine();
                 Console.WriteLine("Do you need to...");
 
@@ -71,9 +73,15 @@ namespace Capstone.CLIs
 
 
 
+                    foreach (var item in vm.ItemsBought)
+                    {
+                        Console.WriteLine($"You bought a{item.Type}!");
+                        Console.WriteLine( item.MakeSound());
 
+                    }
                     Console.WriteLine("Bye, Felicia");
-                    Console.Beep(3007,500);
+                    Console.Beep(2007,300);
+                    Environment.Exit(1);
 
 
 
