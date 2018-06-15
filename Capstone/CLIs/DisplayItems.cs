@@ -15,7 +15,8 @@ namespace Capstone.CLIs
         {
             while (true)
             {
-                
+                Console.Clear();
+
                 Console.WriteLine(vm.DisplayAll());
                 Console.WriteLine("SubMenu 1");
                 Console.WriteLine();
@@ -34,6 +35,8 @@ namespace Capstone.CLIs
 
                 else if (userInput == "n")
                 {
+                    Console.Clear();
+
                     Console.WriteLine("Bye, Felicia");
                     break; //<-- breaks off the whileloop and because it's the end of the line for the entire method so it pops off the stack and returns to the main menu
                 }

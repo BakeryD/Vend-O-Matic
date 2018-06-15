@@ -20,6 +20,8 @@ namespace Capstone.CLIs
         {
             while (true)
             {
+                Console.Clear();
+
                 Console.WriteLine();
                 Console.WriteLine("Do you need to...");
 
@@ -78,7 +80,19 @@ namespace Capstone.CLIs
 
                     //NEED TO ADD MESSAGING
 
+                    foreach (var item in vm.ItemsBought)
+                    {
+                        Console.WriteLine($"You bought a{item.Type}!");
+                        Console.WriteLine( item.MakeSound());
 
+<<<<<<< HEAD
+=======
+                    }
+                    Console.WriteLine("Bye, Felicia");
+                    Console.Beep(2007,300);
+                    Environment.Exit(1);
+
+>>>>>>> 25451e5c73789c58dc271f9cf2df53b91bd4ef0f
 
                     //
                     Console.WriteLine();

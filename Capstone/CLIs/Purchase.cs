@@ -42,15 +42,16 @@ namespace Capstone.CLIs
         {
             while (true)
             {
+                Console.Clear();
                 Console.WriteLine();
                 Console.WriteLine("Purchase Flow");
                 Console.WriteLine("What would you like to do?");
 
 
-                Console.WriteLine("     m - enter dolla$");
-                Console.WriteLine("     p - select product");
-                Console.WriteLine("     w - wait, lemme look again");
-                Console.WriteLine("     d - I'm done, let's go back to the main menu");
+                Console.WriteLine("     m - enter dolla$"); //ADD MONEY TO BALANCE
+                Console.WriteLine("     p - select product");   //CHOSE ITEM
+                Console.WriteLine("     w - wait, lemme look again");   //PULL UP INVENTORY MENU
+                Console.WriteLine("     n - nvm, I'm good(quit)");  //QUIT TO MAIN MENU
 
                 Console.Write("I'd like to ");
                 string userInput = Console.ReadLine();
@@ -63,10 +64,11 @@ namespace Capstone.CLIs
 
                     int input = GetInteger(Console.ReadLine());
 
-                        vm.AcceptCash(input);
-                        Console.WriteLine("Current Balance: $ " + vm.Balance);
-                        Console.WriteLine();
-                    
+
+                    vm.AcceptCash(input);
+                    Console.WriteLine("Current Balance: $ " + vm.Balance);
+                    Console.WriteLine();
+
 
                 }
                 else if (userInput == "p")
@@ -79,19 +81,22 @@ namespace Capstone.CLIs
                     if (!vm.Inventory.ContainsKey(userSelection))
                     {
                         Console.WriteLine("Invalid slot id. Please try again.");
-
                     }
                     else if (vm.Inventory[userSelection].Count == 0)
                     {
                         Console.WriteLine("Sold out. Womp womp.");
                     }
-                    else if (vm.Inventory[userSelection][0].Price > vm.Balance) 
+                    else if (vm.Inventory[userSelection][0].Price > vm.Balance)
                     {
                         Console.WriteLine("Insufficient funds. Womp womp.");
                     }
+
                     else
                     {
-                        vm.BuyItem(userSelection);
+                        var t = vm.BuyItem(userSelection);
+                        FileWriter fw = new FileWriter();
+                        fw.AddLog(t);
+
                         Console.WriteLine("Success! Nom nom nom.");
                     }
 
@@ -107,7 +112,7 @@ namespace Capstone.CLIs
 
 
                 }
-                else if (userInput == "d")
+                else if (userInput == "n")
                 {
 
                     Console.WriteLine("Bye, Felicia");
