@@ -58,14 +58,14 @@ namespace Capstone.CLIs
                 if (userInput == "m")
                 {
                     Console.Clear();
-                    Console.Write("Current Balance: $" + vm.Balance);
+                    Console.WriteLine("Current Balance: $" + vm.Balance);
                     Console.Write("Please insert money: $ ");
 
                     int input = GetInteger(Console.ReadLine());
 
                     
                         vm.AcceptCash(input);
-                        Console.Write("Current Balance: $ " + vm.Balance);
+                        Console.WriteLine("Current Balance: $ " + vm.Balance);
                         Console.WriteLine();
                     
 
@@ -86,6 +86,7 @@ namespace Capstone.CLIs
                     else
                     {
                         vm.BuyItem(userSelection);
+                        Console.WriteLine("Success! Nom nom nom.");
                     }
 
 
