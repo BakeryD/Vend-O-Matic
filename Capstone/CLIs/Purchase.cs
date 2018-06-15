@@ -9,6 +9,33 @@ namespace Capstone.CLIs
 {
     public class Purchase
     {
+        public static int GetInteger(string message)
+        {
+            string userInput = message;
+            int intValue = 0;
+            int numberOfAttempts = 0;
+
+            do
+            {
+                if (numberOfAttempts > 0)
+                {
+                    Console.WriteLine("Please insert money that folds, not jingles. Try again.");
+                }
+
+                if (int.TryParse(message, out intValue))
+                {
+                    return intValue;
+                }
+                //Console.Write(message + " ");
+                userInput = Console.ReadLine();
+                numberOfAttempts++;
+            }
+            while (!int.TryParse(userInput, out intValue));
+
+            return intValue;
+
+        }
+
         public static VendingMachine vm { get; private set; }
 
         public void PurchaseMenu()
@@ -17,39 +44,75 @@ namespace Capstone.CLIs
             {
                 Console.WriteLine();
                 Console.WriteLine("Purchase Flow");
-                Console.WriteLine("Please insert money: ");
-                //string input = Console.ReadLine();
-                Console.WriteLine("Current Money Provided: ");
-                Console.WriteLine();
+                Console.WriteLine("What would you like to do?");
 
 
-                
-
-
-                Console.WriteLine("     m - enter mo' money");
+                Console.WriteLine("     m - enter dolla$");
                 Console.WriteLine("     p - select product");
                 Console.WriteLine("     w - wait, lemme look again");
                 Console.WriteLine("     n - nvm, I'm good(quit)");
 
                 Console.Write("I'd like to ");
-                string input = Console.ReadLine();
+                string userInput = Console.ReadLine();
 
-                if (input == "m")
+                if (userInput == "m")
                 {
-                    Console.WriteLine("Performing feed money");
+                    Console.Clear();
+                    Console.Write("Current Balance: $" + vm.Balance);
+                    Console.Write("Please insert money: $ ");
+
+                    int input = GetInteger(Console.ReadLine());
+                    if (input % 1 != 0)
+                    {
+                        Console.WriteLine("Please insert money that folds, not jingles.");
+                    }
+                    else
+                    {
+                        vm.AcceptCash(input);
+                        Console.Write("Current Balance: $ " + vm.Balance);
+                        Console.WriteLine();
+                    }
+
                 }
-                else if (input == "p")
+                else if (userInput == "p")
                 {
-                    Console.WriteLine("Performing select product");
+                    Console.Clear();
+                    Console.WriteLine("Current Balance: $" + vm.Balance);
+                    Console.Write("Whatchu tryna get?: ");
+                    string userSelection = Console.ReadLine();
+
+                    if (!vm.Inventory.ContainsKey(userSelection))
+                    {
+                        Console.WriteLine("Invalid slot id. Please try again.");
+
+
+                    }
+                    else
+                    {
+                        vm.BuyItem(userSelection);
+                    }
+
+
+
+
                 }
-                else if (input == "w")
+                else if (userInput == "w")
                 {
-                  //  DisplayItems.InventoryMenu();
+                    Console.Clear();
+                    DisplayItems inventoryMenu = new DisplayItems(MainMenu.vm);
+                    inventoryMenu.InventoryMenu();
+
+
                 }
-                else if (input == "n")
+                else if (userInput == "n")
                 {
+
                     Console.WriteLine("Bye, Felicia");
-                    break; //<-- breaks off the whileloop and because it's the end of the line for the entire method so it pops off the stack and returns to the main menu
+                    Console.Clear();
+                    MainMenu mainMenu = new MainMenu(vm);
+                    mainMenu.Display();
+
+                    //<-- breaks off the whileloop and because it's the end of the line for the entire method so it pops off the stack and returns to the main menu
                 }
                 else
                 {
@@ -62,4 +125,6 @@ namespace Capstone.CLIs
             Purchase.vm = vm;
         }
     }
+
+
 }

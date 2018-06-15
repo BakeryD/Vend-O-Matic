@@ -24,15 +24,15 @@ namespace Capstone.CLIs
 
 
                 Console.Write("What option do you want to select? ");
-                string input = Console.ReadLine();
+                string userInput = Console.ReadLine();
 
-                if (input == "1")
+                if (userInput == "1")
                 {
                     Purchase submenu = new Purchase(vm);
                     submenu.PurchaseMenu();
                 }
 
-                else if (input == "n")
+                else if (userInput == "n")
                 {
                     Console.WriteLine("Bye, Felicia");
                     break; //<-- breaks off the whileloop and because it's the end of the line for the entire method so it pops off the stack and returns to the main menu

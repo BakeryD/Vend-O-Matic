@@ -25,22 +25,23 @@ namespace Capstone.CLIs
                 Console.WriteLine("     n - nvm, I'm good");
 
                 Console.Write("I'd like to ");
-                string input = Console.ReadLine();
+                string userInput = Console.ReadLine();
 
-                if (input == "1")
+                if (userInput == "1")
                 {
                     DisplayItems inventoryMenu = new DisplayItems(MainMenu.vm);
 
                    inventoryMenu.InventoryMenu();
                 }
-                else if (input == "2")
+                else if (userInput == "2")
                 {
                     Purchase submenu = new Purchase(vm);
                     submenu.PurchaseMenu();
                 }
-                else if (input == "n")
+                else if (userInput == "n")
                 {
                     Console.WriteLine("Bye, Felicia");
+                    Console.Beep(3007,500);
                     break;
                 }
                 else

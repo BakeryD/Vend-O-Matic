@@ -22,21 +22,14 @@ namespace Capstone
 
             VendingMachine vm = new VendingMachine(inventory);
 
-            MainMenu mainMenu = new MainMenu(vm);
+            MainMenu mainMenu = new MainMenu(vm); // <-- tells main menu to display first
 
             //var time= DateTime.Today;
             mainMenu.Display();
+
             
 
-            //MainMenu mainmenu = new MainMenu();
-             // <-- tells main menu to display first
-
-
-
-
-
-
-            Console.WriteLine(vm.DisplayAll());
+           // Console.WriteLine(vm.DisplayAll());
 
         }
     }

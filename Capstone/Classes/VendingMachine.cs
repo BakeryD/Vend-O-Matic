@@ -11,7 +11,7 @@ namespace Capstone.Classes
     {
         public Dictionary<string, List<VMItem>> Inventory { get; private set; }
 
-        public int Balance { get; private set; }
+        public decimal Balance { get; private set; }
 
         public List<Transaction> TransactionLog { get; private set; }
 
@@ -22,21 +22,35 @@ namespace Capstone.Classes
 
             //public int GiveChange()
 
+        /// <summary>
+        /// accepts money input from user and returns balance 
+        /// </summary>
+        /// <param name="input"></param>
         public void AcceptCash(int input)
         {
             this.Balance += input;
         }
 
+
+        //
         public VendingMachine(Dictionary<string, List<VMItem>> inventory)
         {
             this.Inventory = inventory;
         }
-        public Transaction BuyItem()
+
+
+
+        public Transaction BuyItem(string userSelection)
         {
+            var itemToBuy = Inventory[userSelection][0];
+            this.Inventory[userSelection].Remove(itemToBuy);
+            Balance -= itemToBuy.Price;
 
             return null;
 
         }
+
+
         public string DisplayAll()
         {
 
