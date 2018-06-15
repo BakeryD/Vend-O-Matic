@@ -85,20 +85,12 @@ namespace Capstone.CLIs
                         Console.WriteLine($"You bought a{item.Type}!");
                         Console.WriteLine( item.MakeSound());
 
-<<<<<<< HEAD
-=======
                     }
+                    Console.WriteLine();
                     Console.WriteLine("Bye, Felicia");
                     Console.Beep(2007,300);
                     Environment.Exit(1);
 
->>>>>>> 25451e5c73789c58dc271f9cf2df53b91bd4ef0f
-
-                    //
-                    Console.WriteLine();
-                    Console.WriteLine("Bye, Felicia.");
-                    Console.WriteLine();
-                    Console.Beep(3007,500);
 
                     System.Environment.Exit(1);
 

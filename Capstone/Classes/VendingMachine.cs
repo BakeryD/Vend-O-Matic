@@ -15,15 +15,13 @@ namespace Capstone.Classes
 
         public List<Transaction> TransactionLog { get; private set; }
 
-<<<<<<< HEAD
-                private static void PrintHeader()
+        private static void PrintHeader()
         {
             Console.WriteLine("WELCOME TO THE TECH ELEVATOR CAFETERIA");
         }
-=======
+  
         public List<VMItem> ItemsBought { get; private set; }
 
->>>>>>> 25451e5c73789c58dc271f9cf2df53b91bd4ef0f
 
 
 
@@ -57,13 +55,7 @@ namespace Capstone.Classes
             this.Inventory[userSelection].Remove(itemToBuy);
             Balance -= itemToBuy.Price;
             Transaction itemSold = new Transaction(itemToBuy);
-
-<<<<<<< HEAD
-
-            return null;
-=======
             return itemSold;
->>>>>>> 25451e5c73789c58dc271f9cf2df53b91bd4ef0f
 
         }
 
