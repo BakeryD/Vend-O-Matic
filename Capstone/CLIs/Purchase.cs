@@ -74,7 +74,7 @@ namespace Capstone.CLIs
                     Console.Clear();
                     Console.WriteLine("Current Balance: $" + vm.Balance);
                     Console.Write("Whatchu tryna get?: ");
-                    string userSelection = Console.ReadLine();
+                    string userSelection = Console.ReadLine().ToUpper();
 
                     if (!vm.Inventory.ContainsKey(userSelection))
                     {

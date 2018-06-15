@@ -15,7 +15,10 @@ namespace Capstone.Classes
 
         public List<Transaction> TransactionLog { get; private set; }
 
-
+                private static void PrintHeader()
+        {
+            Console.WriteLine("WELCOME TO THE TECH ELEVATOR CAFETERIA");
+        }
 
 
         // public Transaction BuyItem(string location,)
@@ -45,6 +48,7 @@ namespace Capstone.Classes
             var itemToBuy = Inventory[userSelection][0];
             this.Inventory[userSelection].Remove(itemToBuy);
             Balance -= itemToBuy.Price;
+
 
             return null;
 

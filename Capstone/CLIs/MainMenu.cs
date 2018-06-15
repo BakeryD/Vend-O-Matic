@@ -11,10 +11,13 @@ namespace Capstone.CLIs
     {
         public static VendingMachine vm { get; private set; }
 
+        private static void PrintHeader()
+        {
+            Console.WriteLine("WELCOME TO THE TECH ELEVATOR CAFETERIA");
+        }
+
         public void Display()
         {
-           // PrintHeader();
-
             while (true)
             {
                 Console.WriteLine();
@@ -26,9 +29,6 @@ namespace Capstone.CLIs
 
                 Console.Write("I'd like to ");
                 string userInput = Console.ReadLine();
-
-                //change due variables 
-
 
                 if (userInput == "1")
                 {
@@ -69,16 +69,25 @@ namespace Capstone.CLIs
                     }
                     while (updatedChange > 0);
 
+                    Console.WriteLine($"Quarters: {quarters}");
+                    Console.WriteLine($"Dimes: {dimes}");
+                    Console.WriteLine($"Nickles: {nickles}");
+                    Console.WriteLine($"Pennies: {pennies}");
+                    Console.WriteLine();
+                    //
+
+                    //NEED TO ADD MESSAGING
 
 
 
-                    Console.WriteLine("Bye, Felicia");
+                    //
+                    Console.WriteLine();
+                    Console.WriteLine("Bye, Felicia.");
+                    Console.WriteLine();
                     Console.Beep(3007,500);
 
+                    System.Environment.Exit(1);
 
-
-
-                    break;
                 }
                 else
                 {
@@ -87,11 +96,7 @@ namespace Capstone.CLIs
             }
         }
 
-        private static void PrintHeader()
-        {
 
-            Console.WriteLine("WELCOME TO THE TECH ELEVATOR CAFETERIA");
-        }
         public MainMenu(VendingMachine vm)
         {
             MainMenu.vm = vm;
