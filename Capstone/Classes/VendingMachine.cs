@@ -18,7 +18,7 @@ namespace Capstone.Classes
 
 
 
-        // public Transaction BuyItem(string location,)
+ 
 
             //public int GiveChange()
 
@@ -45,8 +45,9 @@ namespace Capstone.Classes
             var itemToBuy = Inventory[userSelection][0];
             this.Inventory[userSelection].Remove(itemToBuy);
             Balance -= itemToBuy.Price;
+            Transaction itemSold = new Transaction(itemToBuy);
 
-            return null;
+            return itemSold;
 
         }
 

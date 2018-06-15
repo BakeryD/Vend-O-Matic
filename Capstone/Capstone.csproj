@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\FileWriter.cs" />
     <Compile Include="CLIs\DisplayItems.cs" />
     <Compile Include="CLIs\MainMenu.cs" />
     <Compile Include="CLIs\Purchase.cs" />

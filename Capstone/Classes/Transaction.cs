@@ -14,7 +14,7 @@ namespace Capstone.Classes
 
         public Transaction(VMItem item)
         {
-            Time = DateTime.Today;
+            Time = DateTime.Now;
             Item = item;
 
         }
