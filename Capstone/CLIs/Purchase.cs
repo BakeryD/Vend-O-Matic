@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Capstone.Classes;
 
 namespace Capstone.CLIs
 {
     public class Purchase
     {
-        public void Display()
+        public static VendingMachine vm { get; private set; }
+
+        public void PurchaseMenu()
         {
             while (true)
             {
@@ -41,8 +44,7 @@ namespace Capstone.CLIs
                 }
                 else if (input == "w")
                 {
-                    DisplayItems submenu = new DisplayItems();
-                    submenu.Display();
+                    DisplayItems.InventoryMenu();
                 }
                 else if (input == "n")
                 {
@@ -54,6 +56,10 @@ namespace Capstone.CLIs
                     Console.WriteLine("Whaaaat???");
                 }
             }
+        }
+        public Purchase(VendingMachine vm)
+        {
+            Purchase.vm = vm;
         }
     }
 }

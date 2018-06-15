@@ -7,18 +7,25 @@ using Capstone.CLIs;
 
 namespace Capstone.Classes
 {
-  public  class VendingMachine
+    public class VendingMachine
     {
-        public Dictionary<string,List<VMItem>> Inventory { get; private set; }
+        public Dictionary<string, List<VMItem>> Inventory { get; private set; }
 
         public int Balance { get; private set; }
 
-        
-
-        
+        public List<Transaction> TransactionLog { get; private set; }
 
 
-       // public Transaction BuyItem(string location,)
+
+
+        // public Transaction BuyItem(string location,)
+
+            //public int GiveChange()
+
+        public void AcceptCash(int input)
+        {
+            this.Balance += input;
+        }
 
         public VendingMachine(Dictionary<string, List<VMItem>> inventory)
         {
@@ -34,17 +41,17 @@ namespace Capstone.Classes
         {
 
             int Qty = 0;
-           string output=null;
+            string output = " ";
 
             foreach (var item in Inventory)
             {
                 string currentKey = item.Key;
-                output += currentKey+"\t";
+                output += currentKey + "\t";
                 var currentSlot = item.Value;
 
                 for (int i = 0; i < currentSlot.Count; i++)
                 {
-                    if (i==0)
+                    if (i == 0)
                     {
                         output += currentSlot[i].Name + "\t" + currentSlot[i].Price.ToString() + "\t";
                     }
@@ -56,7 +63,7 @@ namespace Capstone.Classes
 
                 }
 
-                output += Qty.ToString()+"\n\r ";
+                output += Qty.ToString() + "\n\r ";
                 Qty = 0;
 
 
