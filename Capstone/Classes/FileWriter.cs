@@ -13,9 +13,12 @@ namespace Capstone.Classes
         
         public void AddLog(Transaction t)
         {
-            using (StreamWriter sw=new StreamWriter(Path))
+            using (StreamWriter sw=new StreamWriter(Path,true))
             {
-
+                if (File.Exists(Path))
+                {
+                    File.Create(Path);
+                }
                 var itemSold = t.Item.Name;
                 var itemType = t.Item.Type;
                 var itemPrice = t.Item.Price;
