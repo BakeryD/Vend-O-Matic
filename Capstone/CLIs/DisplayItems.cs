@@ -20,7 +20,7 @@ namespace Capstone.CLIs
                 Console.WriteLine("SubMenu 1");
                 Console.WriteLine();
                 Console.WriteLine("     1 - okay, I know what I want");
-                Console.WriteLine("     n - nvm, I'm good(quit)");
+                Console.WriteLine("     n - nvm, I want to go back to the main menu");
 
 
                 Console.Write("What option do you want to select? ");
