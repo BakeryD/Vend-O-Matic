@@ -22,7 +22,7 @@ namespace Capstone.CLIs
 
                 Console.WriteLine("     1 - figure out what you want?");
                 Console.WriteLine("     2 - nah, just gimme the food.");
-                Console.WriteLine("     n - nvm, I'm good");
+                Console.WriteLine("     f - lemme finish!");
 
                 Console.Write("I'd like to ");
                 string userInput = Console.ReadLine();
@@ -38,10 +38,18 @@ namespace Capstone.CLIs
                     Purchase submenu = new Purchase(vm);
                     submenu.PurchaseMenu();
                 }
-                else if (userInput == "n")
+                else if (userInput == "f")
                 {
+
+
+
+
                     Console.WriteLine("Bye, Felicia");
                     Console.Beep(3007,500);
+
+
+
+
                     break;
                 }
                 else

@@ -50,7 +50,7 @@ namespace Capstone.CLIs
                 Console.WriteLine("     m - enter dolla$");
                 Console.WriteLine("     p - select product");
                 Console.WriteLine("     w - wait, lemme look again");
-                Console.WriteLine("     n - nvm, I'm good(quit)");
+                Console.WriteLine("     d - I'm done, let's go back to the main menu");
 
                 Console.Write("I'd like to ");
                 string userInput = Console.ReadLine();
@@ -62,16 +62,11 @@ namespace Capstone.CLIs
                     Console.Write("Please insert money: $ ");
 
                     int input = GetInteger(Console.ReadLine());
-                    if (input % 1 != 0)
-                    {
-                        Console.WriteLine("Please insert money that folds, not jingles.");
-                    }
-                    else
-                    {
+
                         vm.AcceptCash(input);
                         Console.Write("Current Balance: $ " + vm.Balance);
                         Console.WriteLine();
-                    }
+                    
 
                 }
                 else if (userInput == "p")
@@ -85,7 +80,14 @@ namespace Capstone.CLIs
                     {
                         Console.WriteLine("Invalid slot id. Please try again.");
 
-
+                    }
+                    else if (vm.Inventory[userSelection].Count == 0)
+                    {
+                        Console.WriteLine("Sold out. Womp womp.");
+                    }
+                    else if (vm.Inventory[userSelection][0].Price > vm.Balance) 
+                    {
+                        Console.WriteLine("Insufficient funds. Womp womp.");
                     }
                     else
                     {
@@ -104,7 +106,7 @@ namespace Capstone.CLIs
 
 
                 }
-                else if (userInput == "n")
+                else if (userInput == "d")
                 {
 
                     Console.WriteLine("Bye, Felicia");
