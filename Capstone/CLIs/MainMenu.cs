@@ -11,7 +11,7 @@ namespace Capstone.CLIs
     {
         public static VendingMachine vm { get; private set; }
 
-        public static void Display()
+        public void Display()
         {
            // PrintHeader();
 
@@ -29,7 +29,9 @@ namespace Capstone.CLIs
 
                 if (input == "1")
                 {
-                    DisplayItems.InventoryMenu();
+                    DisplayItems inventoryMenu = new DisplayItems(MainMenu.vm);
+
+                   inventoryMenu.InventoryMenu();
                 }
                 else if (input == "2")
                 {

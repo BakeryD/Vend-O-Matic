@@ -24,7 +24,8 @@ namespace Capstone
 
             MainMenu mainMenu = new MainMenu(vm);
 
-           //var time= DateTime.Today;
+            //var time= DateTime.Today;
+            mainMenu.Display();
             
 
             //MainMenu mainmenu = new MainMenu();

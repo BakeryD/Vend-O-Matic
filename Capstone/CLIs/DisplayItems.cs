@@ -11,7 +11,7 @@ namespace Capstone.CLIs
     {
         public static VendingMachine vm { get; private set; }
 
-        public static void InventoryMenu()
+        public void InventoryMenu()
         {
             while (true)
             {

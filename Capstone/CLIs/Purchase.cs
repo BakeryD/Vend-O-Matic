@@ -44,7 +44,7 @@ namespace Capstone.CLIs
                 }
                 else if (input == "w")
                 {
-                    DisplayItems.InventoryMenu();
+                  //  DisplayItems.InventoryMenu();
                 }
                 else if (input == "n")
                 {
