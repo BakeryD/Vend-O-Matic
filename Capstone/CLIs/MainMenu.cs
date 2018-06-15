@@ -27,6 +27,9 @@ namespace Capstone.CLIs
                 Console.Write("I'd like to ");
                 string userInput = Console.ReadLine();
 
+                //change due variables 
+
+
                 if (userInput == "1")
                 {
                     DisplayItems inventoryMenu = new DisplayItems(MainMenu.vm);
@@ -40,6 +43,31 @@ namespace Capstone.CLIs
                 }
                 else if (userInput == "f")
                 {
+                    Console.WriteLine();
+                    Console.WriteLine("Change Due: $" + vm.Balance);
+
+                    decimal updatedChange = vm.Balance;
+                    int quarters = 0;
+                    int dimes = 0;
+                    int nickles = 0;
+                    int pennies = 0;
+
+                    do
+                    {
+                        quarters = (int)(updatedChange / .25M);
+                        updatedChange = updatedChange - (decimal)(quarters * .25);
+
+                        dimes = (int)(updatedChange / .1M);
+                        updatedChange = updatedChange - (decimal)(dimes * .1);
+
+                        nickles = (int)(updatedChange / .05M);
+                        updatedChange = updatedChange - (decimal)(nickles * .05);
+
+                        pennies = (int)(updatedChange / .01M);
+                        updatedChange = updatedChange - (decimal)(pennies * .01);
+
+                    }
+                    while (updatedChange > 0);
 
 
 
