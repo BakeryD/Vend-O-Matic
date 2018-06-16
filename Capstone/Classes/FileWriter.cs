@@ -22,7 +22,7 @@ namespace Capstone.Classes
                 var itemType = t.Item.Type;
                 var itemPrice = t.Item.Price;
                 var time = t.Time;
-                sw.WriteLine($"{itemSold,20}{itemType.ToString(),10}{itemPrice.ToString("C2"),15} SOLD AT \t{time} ");
+                sw.WriteLine($"{itemSold,20}{itemType.ToString(),10}{itemPrice.ToString("C2"),15}\t SOLD AT \t{time} ");
             }
 
         }

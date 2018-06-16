@@ -11,7 +11,7 @@ namespace Capstone.Classes
     {
         public Dictionary<string, List<VMItem>> Inventory { get; private set; }
 
-        public FileWriter FW { get; private set; }
+        public FileWriter FW { get; }
 
         public decimal Balance { get; private set; }
 
@@ -26,15 +26,16 @@ namespace Capstone.Classes
         public void AcceptCash(int input)
         {
             this.Balance += input;
+
         }
 
 
-        //
+        
         public VendingMachine(Dictionary<string, List<VMItem>> inventory)
         {
             this.Inventory = inventory;
             ItemsBought = new List<VMItem>();
-            FW = new FileWriter();
+           this. FW = new FileWriter();
         }
 
 
@@ -42,10 +43,26 @@ namespace Capstone.Classes
         /// Removes an item from inventory, subtracts cost from user balance, and logs the transaction.
         /// </summary>
         /// <param name="userSelection">Slot number</param>
-        public void BuyItem(string userSelection)
+        public bool BuyItem(string userSelection)
         {
+           
+
             //IDENTIFY ITEM TO BUY
             var itemToBuy = Inventory[userSelection][0];
+
+            if (itemToBuy.Price>Balance)                        //  PREVENT THE USER FROM GETTING AN ERROR
+            {
+                return false;
+            }
+            else if (Inventory[userSelection].Count == 0)       //  "                                       "
+            {
+                return false;
+            }
+           else if (!Inventory.ContainsKey(userSelection))      //  "                                       "
+            {
+                return false;
+            }
+
             //ADD TO LIST OF ITEMS BOUGHT
             this.ItemsBought.Add(itemToBuy);
             //REMOVE FROM INVENTORY
@@ -56,7 +73,8 @@ namespace Capstone.Classes
             Transaction itemSold = new Transaction(itemToBuy);
             //ADD TRANSACTION TO LOG
             FW.AddLog(itemSold);
-            //return itemSold;
+            //return true;
+            return true;
 
         }
 
