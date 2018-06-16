@@ -42,7 +42,6 @@ namespace Capstone.CLIs
         {
             while (true)
             {
-                
                 Console.WriteLine();
                 Console.WriteLine("Purchase Menu");
                 Console.WriteLine("What would you like to do?");
@@ -66,9 +65,7 @@ namespace Capstone.CLIs
 
 
                     vm.AcceptCash(input);
-                    Console.WriteLine("Current Balance: $ " + vm.Balance);
-                    Console.WriteLine();
-                    Console.WriteLine();
+                    Console.Clear();
 
                 }
                 else if (userInput == "2")

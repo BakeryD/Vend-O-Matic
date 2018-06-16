@@ -15,7 +15,6 @@ namespace Capstone.CLIs
         {
             while (true)
             {
-                Console.Clear();
 
                 Console.WriteLine(vm.DisplayAll());
                 Console.WriteLine("Inventory Menu"); //INVENTORY MENU
@@ -29,6 +28,7 @@ namespace Capstone.CLIs
 
                 if (userInput == "1")
                 {
+                    Console.Clear();
                     Purchase submenu = new Purchase(vm);
                     submenu.PurchaseMenu();
                 }

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Capstone.Tests
 {
-    [TestClass]
+    [TestClass, TestCategory("Purchase Feature")]
     public class PurchaseFeatureTests
     {
        private static FileReader fr = new FileReader();
@@ -74,5 +74,6 @@ namespace Capstone.Tests
             Assert.AreEqual(initialBalance - costOfA1, vm.Balance);
 
         }
+
     }
 }

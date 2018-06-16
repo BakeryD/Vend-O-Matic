@@ -16,8 +16,17 @@ namespace Capstone.Classes
         /// <param name="t"></param>
         public void AddLog(Transaction t)
         {
+
+                if (!File.Exists(Path))
+                {
+                    StreamWriter sw = new StreamWriter(Path, true);
+                    sw.WriteLine($"\tItem Name\t  Type\t\tPrice\t\tTime of Transaction");
+                    sw.Dispose();
+                }
+            
             using (StreamWriter sw=new StreamWriter(Path,true))
             {
+
                 var itemSold = t.Item.Name;
                 var itemType = t.Item.Type;
                 var itemPrice = t.Item.Price;

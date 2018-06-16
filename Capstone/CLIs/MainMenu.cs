@@ -16,7 +16,7 @@ namespace Capstone.CLIs
         {
             while (true)
             {
-                Console.Clear();
+                //Console.Clear();
 
                 Console.WriteLine("Main Menu");
                 Console.WriteLine();
@@ -29,18 +29,20 @@ namespace Capstone.CLIs
 
                 if (userInput == "1")
                 {
+                    Console.Clear();
                     DisplayItems inventoryMenu = new DisplayItems(MainMenu.vm);
 
                     inventoryMenu.InventoryMenu();
                 }
                 else if (userInput == "2")
                 {
+                    Console.Clear();
                     Purchase submenu = new Purchase(vm);
                     submenu.PurchaseMenu();
                 }
                 else if (userInput.ToUpper() == "Q")
                 {
-                    Console.BackgroundColor = ConsoleColor.DarkRed;
+                    Console.BackgroundColor = ConsoleColor.DarkMagenta;
                     Console.Clear();
                     Console.WriteLine();
                     Console.WriteLine("Change Due: $" + vm.Balance);
@@ -72,15 +74,17 @@ namespace Capstone.CLIs
                     foreach (var item in vm.ItemsBought)
                     {
                         Console.WriteLine($"You bought a {item.Type}!");
-                        System.Threading.Thread.Sleep(400);
-                        Console.Beep(1507, 75);
-                        Console.Beep(1507, 75);
+                        System.Threading.Thread.Sleep(600);
+                        Console.Beep(1955, 65);
+                        Console.Beep(1955, 50);
                         Console.WriteLine();
                         Console.WriteLine(item.MakeSound());
                         Console.WriteLine();
+                        System.Threading.Thread.Sleep(950);
                     }
                     Console.WriteLine();
                     Console.WriteLine("BYE-BYE :)");
+                    System.Threading.Thread.Sleep(400);
                     Console.Beep(1307, 75);
                     Console.SetWindowSize(104, 24);
                     System.Threading.Thread.Sleep(400);
