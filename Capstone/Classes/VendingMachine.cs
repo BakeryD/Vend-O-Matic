@@ -45,7 +45,10 @@ namespace Capstone.Classes
         /// <param name="userSelection">Slot number</param>
         public bool BuyItem(string userSelection)
         {
-           
+            if (Inventory[userSelection].Count == 0)       //  "                                       "
+            {
+                return false;
+            }
 
             //IDENTIFY ITEM TO BUY
             var itemToBuy = Inventory[userSelection][0];
@@ -54,10 +57,7 @@ namespace Capstone.Classes
             {
                 return false;
             }
-            else if (Inventory[userSelection].Count == 0)       //  "                                       "
-            {
-                return false;
-            }
+           
            else if (!Inventory.ContainsKey(userSelection))      //  "                                       "
             {
                 return false;
