@@ -18,13 +18,13 @@ namespace Capstone.CLIs
                 Console.Clear();
 
                 Console.WriteLine(vm.DisplayAll());
-                Console.WriteLine("SubMenu 1");
+                Console.WriteLine("Inventory Menu"); //INVENTORY MENU
                 Console.WriteLine();
-                Console.WriteLine("     1 - okay, I know what I want");
-                Console.WriteLine("     n - nvm, I want to go back to the main menu");
+                Console.WriteLine("<1> Return to Purchase Menu"); //GO TO PURCHASE MENU
+                Console.WriteLine("<2> Quit to main menu"); // QUIT TO MAIN MENU
 
 
-                Console.Write("What option do you want to select? ");
+                Console.Write(">");
                 string userInput = Console.ReadLine();
 
                 if (userInput == "1")
@@ -32,8 +32,7 @@ namespace Capstone.CLIs
                     Purchase submenu = new Purchase(vm);
                     submenu.PurchaseMenu();
                 }
-
-                else if (userInput == "n")
+                else if (userInput == "2")
                 {
                     Console.Clear();
 
@@ -42,7 +41,9 @@ namespace Capstone.CLIs
                 }
                 else
                 {
-                    Console.WriteLine("Whaaaat???");
+                    Console.WriteLine("Invalid Input");
+                    Console.WriteLine("C'MON, THERE'S ONLY 2 CHOICES!");
+                    Console.WriteLine();
                 }
             }
         }

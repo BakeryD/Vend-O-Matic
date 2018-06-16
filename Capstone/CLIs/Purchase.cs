@@ -42,21 +42,21 @@ namespace Capstone.CLIs
         {
             while (true)
             {
-                Console.Clear();
+                
                 Console.WriteLine();
-                Console.WriteLine("Purchase Flow");
+                Console.WriteLine("Purchase Menu");
                 Console.WriteLine("What would you like to do?");
+                Console.WriteLine("<1> Insert Money"); //ADD MONEY TO BALANCE
+                Console.WriteLine("<2> Buy Item");   //CHOSE ITEM
+                Console.WriteLine("<3> View Inventory Menu");   //VIEW INVENTORY MENU
+                Console.WriteLine("<4> Quit to Main Menu");  //QUIT TO MAIN MENU
+                Console.WriteLine($"Total Amount Inserted: {vm.Balance.ToString("C2")}");
+                Console.WriteLine();
 
-
-                Console.WriteLine("     m - enter dolla$"); //ADD MONEY TO BALANCE
-                Console.WriteLine("     p - select product");   //CHOSE ITEM
-                Console.WriteLine("     w - wait, lemme look again");   //PULL UP INVENTORY MENU
-                Console.WriteLine("     n - nvm, I'm good(quit)");  //QUIT TO MAIN MENU
-
-                Console.Write("I'd like to ");
+                Console.Write(">");
                 string userInput = Console.ReadLine();
 
-                if (userInput == "m")
+                if (userInput == "1")
                 {
                     Console.Clear();
                     Console.WriteLine("Current Balance: $" + vm.Balance);
@@ -68,43 +68,51 @@ namespace Capstone.CLIs
                     vm.AcceptCash(input);
                     Console.WriteLine("Current Balance: $ " + vm.Balance);
                     Console.WriteLine();
-
+                    Console.WriteLine();
 
                 }
-                else if (userInput == "p")
+                else if (userInput == "2")
                 {
                     Console.Clear();
                     Console.WriteLine("Current Balance: $" + vm.Balance);
-                    Console.Write("Whatchu tryna get?: ");
+                    Console.Write(">Enter Slot Code:  ");
                     string userSelection = Console.ReadLine().ToUpper();
 
                     if (!vm.Inventory.ContainsKey(userSelection))
                     {
-                        Console.WriteLine("Invalid slot id. Please try again.");
+                        Console.WriteLine("Invalid Slot Code. Please Try Again.");
                     }
                     else if (vm.Inventory[userSelection].Count == 0)
                     {
-                        Console.WriteLine("Sold out. Womp womp.");
+                        Console.Beep(1955, 45);
+                        Console.Beep(1955, 50);
+                        Console.WriteLine("Sold out. Womp womp womp.");
                     }
                     else if (vm.Inventory[userSelection][0].Price > vm.Balance)
                     {
-                        Console.WriteLine("Insufficient funds. Womp womp.");
+                        Console.Beep(1955, 65);
+                        Console.Beep(1955, 50);
+                        Console.WriteLine("Insufficient funds. Womp womp womp.");
                     }
 
                     else
                     {
-                        var t = vm.BuyItem(userSelection);
-                        FileWriter fw = new FileWriter();
-                        fw.AddLog(t);
+                        vm.BuyItem(userSelection);
 
-                        Console.WriteLine("Success! Nom nom nom.");
+
+                        Console.Clear();
+                        Console.WriteLine("VENDING....");
+                        Console.WriteLine();
+                        System.Threading.Thread.Sleep(400);
+                        Console.WriteLine("Item Dispensed.");
+                        Console.WriteLine();
                     }
 
 
 
 
                 }
-                else if (userInput == "w")
+                else if (userInput == "3")
                 {
                     Console.Clear();
                     DisplayItems inventoryMenu = new DisplayItems(MainMenu.vm);
@@ -112,10 +120,8 @@ namespace Capstone.CLIs
 
 
                 }
-                else if (userInput == "n")
+                else if (userInput == "4")
                 {
-
-                    Console.WriteLine("Bye, Felicia");
                     Console.Clear();
                     MainMenu mainMenu = new MainMenu(vm);
                     mainMenu.Display();
@@ -124,7 +130,7 @@ namespace Capstone.CLIs
                 }
                 else
                 {
-                    Console.WriteLine("Whaaaat???");
+                    Console.WriteLine("Invalid Input. Try Again");
                 }
             }
         }

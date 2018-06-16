@@ -11,10 +11,6 @@ namespace Capstone.CLIs
     {
         public static VendingMachine vm { get; private set; }
 
-        private static void PrintHeader()
-        {
-            Console.WriteLine("WELCOME TO THE TECH ELEVATOR CAFETERIA");
-        }
 
         public void Display()
         {
@@ -22,29 +18,30 @@ namespace Capstone.CLIs
             {
                 Console.Clear();
 
+                Console.WriteLine("Main Menu");
                 Console.WriteLine();
-                Console.WriteLine("Do you need to...");
-
-                Console.WriteLine("     1 - figure out what you want?");
-                Console.WriteLine("     2 - nah, just gimme the food.");
-                Console.WriteLine("     f - lemme finish!");
-
-                Console.Write("I'd like to ");
+                Console.WriteLine("<1> View Inventory");    //VIEW INVENTORY
+                Console.WriteLine("<2> Purchase Menu.");    //PURCHASE MENU
+                Console.WriteLine("<Q> Finish Transaction/Quit");    //FINISH TRANSACTION & QUIT
+                Console.WriteLine();
+                Console.Write(">");
                 string userInput = Console.ReadLine();
 
                 if (userInput == "1")
                 {
                     DisplayItems inventoryMenu = new DisplayItems(MainMenu.vm);
 
-                   inventoryMenu.InventoryMenu();
+                    inventoryMenu.InventoryMenu();
                 }
                 else if (userInput == "2")
                 {
                     Purchase submenu = new Purchase(vm);
                     submenu.PurchaseMenu();
                 }
-                else if (userInput == "f")
+                else if (userInput.ToUpper() == "Q")
                 {
+                    Console.BackgroundColor = ConsoleColor.DarkRed;
+                    Console.Clear();
                     Console.WriteLine();
                     Console.WriteLine("Change Due: $" + vm.Balance);
 
@@ -54,50 +51,52 @@ namespace Capstone.CLIs
                     int nickles = 0;
                     int pennies = 0;
 
-                    do
-                    {
-                        quarters = (int)(updatedChange / .25M);
-                        updatedChange = updatedChange - (decimal)(quarters * .25);
+                    quarters = (int)(updatedChange / .25M);
+                    updatedChange = updatedChange - (decimal)(quarters * .25);
 
-                        dimes = (int)(updatedChange / .1M);
-                        updatedChange = updatedChange - (decimal)(dimes * .1);
+                    dimes = (int)(updatedChange / .1M);
+                    updatedChange = updatedChange - (decimal)(dimes * .1);
 
-                        nickles = (int)(updatedChange / .05M);
-                        updatedChange = updatedChange - (decimal)(nickles * .05);
+                    nickles = (int)(updatedChange / .05M);
+                    updatedChange = updatedChange - (decimal)(nickles * .05);
 
-                        pennies = (int)(updatedChange / .01M);
-                        updatedChange = updatedChange - (decimal)(pennies * .01);
-
-                    }
-                    while (updatedChange > 0);
-
+                    // pennies = (int)(updatedChange / .01M);
+                    //updatedChange = updatedChange - (decimal)(pennies * .01);
                     Console.WriteLine($"Quarters: {quarters}");
                     Console.WriteLine($"Dimes: {dimes}");
                     Console.WriteLine($"Nickles: {nickles}");
                     Console.WriteLine($"Pennies: {pennies}");
                     Console.WriteLine();
-                    //
 
-                    //NEED TO ADD MESSAGING
 
                     foreach (var item in vm.ItemsBought)
                     {
-                        Console.WriteLine($"You bought a{item.Type}!");
-                        Console.WriteLine( item.MakeSound());
-
+                        Console.WriteLine($"You bought a {item.Type}!");
+                        System.Threading.Thread.Sleep(400);
+                        Console.Beep(1507, 75);
+                        Console.Beep(1507, 75);
+                        Console.WriteLine();
+                        Console.WriteLine(item.MakeSound());
+                        Console.WriteLine();
                     }
                     Console.WriteLine();
-                    Console.WriteLine("Bye, Felicia");
-                    Console.Beep(2007,300);
+                    Console.WriteLine("BYE-BYE :)");
+                    Console.Beep(1307, 75);
+                    Console.SetWindowSize(104, 24);
+                    System.Threading.Thread.Sleep(400);
+                    Console.Beep(1300, 75);
+                    Console.SetWindowSize(52, 12);
+                    System.Threading.Thread.Sleep(400);
+                    Console.Beep(1107, 75);
+                    Console.SetWindowSize(26, 6);
+                    System.Threading.Thread.Sleep(400);
+                    Console.Beep(907, 75);
+                    Console.SetWindowSize(13, 3);
                     Environment.Exit(1);
-
-
-                    System.Environment.Exit(1);
-
                 }
                 else
                 {
-                    Console.WriteLine("Whaaaat???");
+                    Console.WriteLine("INVALID INPUT");
                 }
             }
         }

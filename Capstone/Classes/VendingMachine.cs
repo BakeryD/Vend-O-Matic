@@ -11,26 +11,16 @@ namespace Capstone.Classes
     {
         public Dictionary<string, List<VMItem>> Inventory { get; private set; }
 
+        public FileWriter FW { get; private set; }
+
         public decimal Balance { get; private set; }
 
         public List<Transaction> TransactionLog { get; private set; }
-
-        private static void PrintHeader()
-        {
-            Console.WriteLine("WELCOME TO THE TECH ELEVATOR CAFETERIA");
-        }
   
         public List<VMItem> ItemsBought { get; private set; }
 
-
-
-
- 
-
-            //public int GiveChange()
-
         /// <summary>
-        /// accepts money input from user and returns balance 
+        /// Accepts money from user and adds to balance.
         /// </summary>
         /// <param name="input"></param>
         public void AcceptCash(int input)
@@ -44,18 +34,29 @@ namespace Capstone.Classes
         {
             this.Inventory = inventory;
             ItemsBought = new List<VMItem>();
+            FW = new FileWriter();
         }
 
 
-
-        public Transaction BuyItem(string userSelection)
+        /// <summary>
+        /// Removes an item from inventory, subtracts cost from user balance, and logs the transaction.
+        /// </summary>
+        /// <param name="userSelection">Slot number</param>
+        public void BuyItem(string userSelection)
         {
+            //IDENTIFY ITEM TO BUY
             var itemToBuy = Inventory[userSelection][0];
+            //ADD TO LIST OF ITEMS BOUGHT
             this.ItemsBought.Add(itemToBuy);
+            //REMOVE FROM INVENTORY
             this.Inventory[userSelection].Remove(itemToBuy);
+            //REMOVE COST OF ITEM FROM MONEY USER INSERTED
             Balance -= itemToBuy.Price;
+            //CREATE A TRANSACTION OBJECT
             Transaction itemSold = new Transaction(itemToBuy);
-            return itemSold;
+            //ADD TRANSACTION TO LOG
+            FW.AddLog(itemSold);
+            //return itemSold;
 
         }
 
@@ -82,8 +83,6 @@ namespace Capstone.Classes
                     {
                         Qty++;
                     }
-
-
                 }
 
                 output += Qty.ToString() + "\n\r ";

@@ -10,18 +10,19 @@ namespace Capstone.Classes
   public  class FileWriter
     {
         public string Path { get; }
-        
+        /// <summary>
+        /// Can't you tell???
+        /// </summary>
+        /// <param name="t"></param>
         public void AddLog(Transaction t)
         {
             using (StreamWriter sw=new StreamWriter(Path,true))
             {
-             
                 var itemSold = t.Item.Name;
                 var itemType = t.Item.Type;
                 var itemPrice = t.Item.Price;
                 var time = t.Time;
-                sw.WriteLine($"{itemSold}\t\t{itemType.ToString()}\t\t{itemPrice.ToString("C2")}\t\t SOLD AT {time} ");
-
+                sw.WriteLine($"{itemSold,20}{itemType.ToString(),10}{itemPrice.ToString("C2"),15} SOLD AT \t{time} ");
             }
 
         }
