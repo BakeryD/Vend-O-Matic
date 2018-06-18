@@ -14,6 +14,8 @@ namespace Capstone.Classes
         public Dictionary<string, List<VMItem>> Stock()
         {
             Dictionary<string, List<VMItem>> inventory = new Dictionary<string, List<VMItem>>();
+            const int Column_Slot = 0;
+            const int Column_Name = 1;
 
             try
             {
@@ -24,8 +26,8 @@ namespace Capstone.Classes
 
                         string line = sr.ReadLine();
                         string[] item = line.Split('|');
-                        string slot = item[0];
-                        string name = item[1];
+                        string slot = item[Column_Slot];
+                        string name = item[Column_Name];
                         decimal price = decimal.Parse(item[2]);
                         ItemType type = ItemType.Gum;
 

@@ -14,6 +14,8 @@ namespace Capstone.CLIs
 
         public void Display()
         {
+            
+
             while (true)
             {
                 //Console.Clear();
