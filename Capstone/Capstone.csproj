@@ -44,9 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\FileWriter.cs" />
-    <Compile Include="CLIs\DisplayItems.cs" />
+    <Compile Include="CLIs\InventoryMenu.cs" />
     <Compile Include="CLIs\MainMenu.cs" />
-    <Compile Include="CLIs\Purchase.cs" />
+    <Compile Include="CLIs\PurchaseMenu.cs" />
     <Compile Include="Classes\ItemType.cs" />
     <Compile Include="Classes\FileReader.cs" />
     <Compile Include="Classes\Transaction.cs" />

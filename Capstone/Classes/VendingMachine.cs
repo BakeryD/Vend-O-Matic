@@ -16,7 +16,7 @@ namespace Capstone.Classes
         public decimal Balance { get; private set; }
 
         public List<Transaction> TransactionLog { get; private set; }
-  
+
         public List<VMItem> ItemsBought { get; private set; }
 
         /// <summary>
@@ -30,12 +30,15 @@ namespace Capstone.Classes
         }
 
 
-        
+        /// <summary>
+        /// Creates a new Vending Machine object with an inventory, a file writer, a list of items bought, and a list of transactions. 
+        /// </summary>
+        /// <param name="inventory"></param>
         public VendingMachine(Dictionary<string, List<VMItem>> inventory)
         {
             this.Inventory = inventory;
             ItemsBought = new List<VMItem>();
-           this. FW = new FileWriter();
+            this.FW = new FileWriter();
             this.TransactionLog = new List<Transaction>();
         }
 
@@ -54,12 +57,12 @@ namespace Capstone.Classes
             //IDENTIFY ITEM TO BUY
             var itemToBuy = Inventory[userSelection][0];
 
-            if (itemToBuy.Price>Balance)                        //  PREVENT THE USER FROM GETTING AN ERROR
+            if (itemToBuy.Price > Balance)                        //  PREVENT THE USER FROM GETTING AN ERROR
             {
                 return false;
             }
-           
-           else if (!Inventory.ContainsKey(userSelection))      //  "                                       "
+
+            else if (!Inventory.ContainsKey(userSelection))      //  "                                       "
             {
                 return false;
             }
@@ -80,7 +83,10 @@ namespace Capstone.Classes
 
         }
 
-
+        /// <summary>
+        /// Returns the current inventory as a string.
+        /// </summary>
+        /// <returns></returns>
         public string DisplayAll()
         {
 

@@ -7,7 +7,7 @@ using Capstone.Classes;
 
 namespace Capstone.CLIs
 {
-    public class Purchase
+    public class PurchaseMenu
     {
         public static int GetInteger(string message)
         {
@@ -38,7 +38,7 @@ namespace Capstone.CLIs
 
         public static VendingMachine vm { get; private set; }
 
-        public void PurchaseMenu()
+        public void Display()
         {
             while (true)
             {
@@ -112,8 +112,8 @@ namespace Capstone.CLIs
                 else if (userInput == "3")
                 {
                     Console.Clear();
-                    DisplayItems inventoryMenu = new DisplayItems(MainMenu.vm);
-                    inventoryMenu.InventoryMenu();
+                    InventoryMenu inventoryMenu = new InventoryMenu(MainMenu.vm);
+                    inventoryMenu.Display();
 
 
                 }
@@ -131,9 +131,9 @@ namespace Capstone.CLIs
                 }
             }
         }
-        public Purchase(VendingMachine vm)
+        public PurchaseMenu(VendingMachine vm)
         {
-            Purchase.vm = vm;
+            CLIs.PurchaseMenu.vm = vm;
         }
     }
 

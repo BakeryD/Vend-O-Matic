@@ -9,8 +9,8 @@ namespace Capstone.Tests
     [TestClass, TestCategory("Purchase Feature")]
     public class PurchaseFeatureTests
     {
-       private static FileReader fr = new FileReader();
-       private VendingMachine vm = new VendingMachine(fr.Stock());
+        private static FileReader fr = new FileReader();
+        private VendingMachine vm = new VendingMachine(fr.Stock());
         [TestMethod]
         public void Verify_Purchases_Update_Inventory()
         {

@@ -13,7 +13,7 @@ namespace Capstone.Tests
         [TestMethod]
         public void Verify_Items_Have_Sound()
         {
-           var sound= vm.Inventory["A1"][0].MakeSound();
+            var sound = vm.Inventory["A1"][0].MakeSound();
             Assert.IsNotNull(sound);
         }
     }

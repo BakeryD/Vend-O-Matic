@@ -30,15 +30,15 @@ namespace Capstone.CLIs
                 if (userInput == "1")
                 {
                     Console.Clear();
-                    DisplayItems inventoryMenu = new DisplayItems(MainMenu.vm);
+                    InventoryMenu inventoryMenu = new InventoryMenu(MainMenu.vm);
 
-                    inventoryMenu.InventoryMenu();
+                    inventoryMenu.Display();
                 }
                 else if (userInput == "2")
                 {
                     Console.Clear();
-                    Purchase submenu = new Purchase(vm);
-                    submenu.PurchaseMenu();
+                    PurchaseMenu submenu = new PurchaseMenu(vm);
+                    submenu.Display();
                 }
                 else if (userInput.ToUpper() == "Q")
                 {

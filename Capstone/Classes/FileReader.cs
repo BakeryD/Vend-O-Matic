@@ -4,24 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-//using Capstone.CLIs;
 
 namespace Capstone.Classes
 {
     public class FileReader
     {
-        
+
 
         public string Path { get; }
 
-        public Dictionary<string , List<VMItem> > Stock()
+        public Dictionary<string, List<VMItem>> Stock()
         {
-            Dictionary<string , List<VMItem>> inventory = new Dictionary<string , List<VMItem>>();
-            
+            Dictionary<string, List<VMItem>> inventory = new Dictionary<string, List<VMItem>>();
+
 
             try
             {
-                using (StreamReader sr= new StreamReader(Path))
+                using (StreamReader sr = new StreamReader(Path))
                 {
 
                     while (!sr.EndOfStream)
@@ -48,7 +47,7 @@ namespace Capstone.Classes
                         {
                             type = ItemType.Candy;
                         }
-                        
+
 
                         if (inventory.ContainsKey(location))
                         {
@@ -71,7 +70,7 @@ namespace Capstone.Classes
             catch (IOException ex)
             {
 
-                Console.WriteLine(ex.Message+"\n\n BYE BYE NOW...");
+                Console.WriteLine(ex.Message + "\n\n BYE BYE NOW...");
             }
             return inventory;
 

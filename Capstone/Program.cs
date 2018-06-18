@@ -12,14 +12,14 @@ namespace Capstone
     {
         static void Main(string[] args)
         {
- 
+
             FileReader fr = new FileReader();
 
             var inventory = fr.Stock();
 
             VendingMachine vm = new VendingMachine(inventory);
 
-            MainMenu mainMenu = new MainMenu(vm); 
+            MainMenu mainMenu = new MainMenu(vm);
 
             mainMenu.Display();    // <-- tells main menu to display first
 
