@@ -19,7 +19,7 @@ namespace Capstone.CLIs
                 Console.WriteLine(vm.DisplayAll());
                 Console.WriteLine("Inventory Menu"); //INVENTORY MENU
                 Console.WriteLine();
-                Console.WriteLine("<1> Return to Purchase Menu"); //GO TO PURCHASE MENU
+                Console.WriteLine("<1> Purchase Menu"); //GO TO PURCHASE MENU
                 Console.WriteLine("<2> Quit to main menu"); // QUIT TO MAIN MENU
 
 

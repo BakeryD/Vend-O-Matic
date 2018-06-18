@@ -96,14 +96,14 @@ namespace Capstone.Classes
             foreach (var item in Inventory)
             {
                 string currentKey = item.Key;
-                output += currentKey + "\t";
+                output += currentKey + "\t\t";
                 var currentSlot = item.Value;
 
                 for (int i = 0; i < currentSlot.Count; i++)
                 {
                     if (i == 0)
                     {
-                        output += currentSlot[i].Name + "\t" + currentSlot[i].Price.ToString() + "\t";
+                        output += currentSlot[i].Name + "\t\t" + currentSlot[i].Price.ToString("C2") + "\t";
                     }
                     else
                     {
