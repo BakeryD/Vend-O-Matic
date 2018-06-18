@@ -49,7 +49,7 @@ namespace Capstone.Classes
         /// <param name="userSelection">Slot number</param>
         public bool BuyItem(string userSelection)
         {
-            if (Inventory[userSelection].Count == 0)       //  "                                       "
+            if (Inventory[userSelection].Count == 0)       //  PREVENT THE USER FROM GETTING AN ERROR
             {
                 return false;
             }
@@ -57,7 +57,7 @@ namespace Capstone.Classes
             //IDENTIFY ITEM TO BUY
             var itemToBuy = Inventory[userSelection][0];
 
-            if (itemToBuy.Price > Balance)                        //  PREVENT THE USER FROM GETTING AN ERROR
+            if (itemToBuy.Price > Balance)                        //  "                                       "
             {
                 return false;
             }
@@ -90,29 +90,29 @@ namespace Capstone.Classes
         public string DisplayAll()
         {
 
-            int Qty = 0;
-            string output = " ";
+            int qty = 0;
+            string output = $"{"Slot",5}{"Name",18}{"Price",20}{"Qty",7}\n ";
 
             foreach (var item in Inventory)
             {
                 string currentKey = item.Key;
-                output += currentKey + "\t\t";
+                output += currentKey + "\t";
                 var currentSlot = item.Value;
 
                 for (int i = 0; i < currentSlot.Count; i++)
                 {
                     if (i == 0)
                     {
-                        output += currentSlot[i].Name + "\t\t" + currentSlot[i].Price.ToString("C2") + "\t";
+                        output += $"{currentSlot[i].Name,18}  \t {currentSlot[i].Price.ToString("C2"),10}  \t";
                     }
                     else
                     {
-                        Qty++;
+                        qty++;
                     }
                 }
 
-                output += Qty.ToString() + "\n\r ";
-                Qty = 0;
+                output += qty.ToString() + "\n\r ";
+                qty = 0;
 
 
             }

@@ -30,7 +30,7 @@ namespace Capstone.Classes
 
                         string[] item = line.Split('|');
 
-                        string location = item[0];
+                        string slot = item[0];
                         string name = item[1];
                         decimal price = decimal.Parse(item[2]);
                         ItemType type = ItemType.Gum;
@@ -49,9 +49,9 @@ namespace Capstone.Classes
                         }
 
 
-                        if (inventory.ContainsKey(location))
+                        if (inventory.ContainsKey(slot))
                         {
-                            inventory[location].Add(new VMItem(name, type, price));
+                            inventory[slot].Add(new VMItem(name, type, price));
 
                         }
                         else
@@ -59,7 +59,7 @@ namespace Capstone.Classes
                             List<VMItem> itemsInSlot = new List<VMItem>();
                             itemsInSlot.Add(new VMItem(name, type, price));
 
-                            inventory.Add(location, itemsInSlot);
+                            inventory.Add(slot, itemsInSlot);
                         }
                     }
 
@@ -70,7 +70,7 @@ namespace Capstone.Classes
             catch (IOException ex)
             {
 
-                Console.WriteLine(ex.Message + "\n\n BYE BYE NOW...");
+                Console.WriteLine(ex.Message + "\n\n Error Updating Inventory.");
             }
             return inventory;
 
