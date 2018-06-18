@@ -36,6 +36,7 @@ namespace Capstone.Classes
             this.Inventory = inventory;
             ItemsBought = new List<VMItem>();
            this. FW = new FileWriter();
+            this.TransactionLog = new List<Transaction>();
         }
 
 
@@ -73,6 +74,7 @@ namespace Capstone.Classes
             Transaction itemSold = new Transaction(itemToBuy);
             //ADD TRANSACTION TO LOG
             FW.AddLog(itemSold);
+            this.TransactionLog.Add(itemSold);
             //return true;
             return true;
 

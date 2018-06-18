@@ -75,5 +75,16 @@ namespace Capstone.Tests
 
         }
 
+        [TestMethod]
+        public void Verify_Transactions_Are_TimeStamped()
+        {
+            vm.AcceptCash(5);
+            vm.BuyItem("A1");
+            var hasTime = vm.TransactionLog[0].Time.GetType();
+
+            Assert.IsTrue(hasTime.GetType() is DateTime);
+
+        }
+
     }
 }

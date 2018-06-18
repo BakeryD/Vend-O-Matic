@@ -11,7 +11,7 @@ namespace Capstone.Classes
     {
         public string Path { get; }
         /// <summary>
-        /// Can't you tell???
+        /// Adds the item sold, type, price and time of transaction to Log.txt
         /// </summary>
         /// <param name="t"></param>
         public void AddLog(Transaction t)
