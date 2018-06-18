@@ -73,6 +73,10 @@ namespace Capstone.Classes
             this.Inventory[userSelection].Remove(itemToBuy);
             //REMOVE COST OF ITEM FROM MONEY USER INSERTED
             Balance -= itemToBuy.Price;
+            if (Inventory[userSelection].Count==0)
+            {
+                Inventory.Remove(userSelection);
+            }
             //CREATE A TRANSACTION OBJECT
             Transaction itemSold = new Transaction(itemToBuy);
             //ADD TRANSACTION TO LOG
@@ -90,7 +94,7 @@ namespace Capstone.Classes
         public string DisplayAll()
         {
 
-            int qty = 0;
+            int qty = 1;
             string output = $"{"Slot",5}{"Name",18}{"Price",20}{"Qty",7}\n ";
 
             foreach (var item in Inventory)
@@ -112,7 +116,7 @@ namespace Capstone.Classes
                 }
 
                 output += qty.ToString() + "\n\r ";
-                qty = 0;
+                qty = 1;
 
 
             }
