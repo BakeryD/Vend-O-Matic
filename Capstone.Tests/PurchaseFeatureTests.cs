@@ -82,8 +82,8 @@ namespace Capstone.Tests
             vm.BuyItem("A1");
             var hasTime = vm.TransactionLog[0].Time.GetType();
 
-            Assert.IsTrue(hasTime.GetType() is DateTime);
 
+            Assert.IsInstanceOfType(DateTime.Now, hasTime);
         }
 
     }
