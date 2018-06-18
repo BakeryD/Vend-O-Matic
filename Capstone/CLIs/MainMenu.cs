@@ -48,56 +48,11 @@ namespace Capstone.CLIs
                     Console.WriteLine();
                     Console.WriteLine("Change Due: $" + vm.Balance);
 
-                    decimal updatedChange = vm.Balance;
-                    int quarters = 0;
-                    int dimes = 0;
-                    int nickles = 0;
-                    int pennies = 0;
+                    PrintChangeDue();
+                    PrintPurchasedItems();
+                    ResizeAndExitWindow();
 
-                    quarters = (int)(updatedChange / .25M);
-                    updatedChange = updatedChange - (decimal)(quarters * .25);
-
-                    dimes = (int)(updatedChange / .1M);
-                    updatedChange = updatedChange - (decimal)(dimes * .1);
-
-                    nickles = (int)(updatedChange / .05M);
-                    updatedChange = updatedChange - (decimal)(nickles * .05);
-
-                    // pennies = (int)(updatedChange / .01M);
-                    //updatedChange = updatedChange - (decimal)(pennies * .01);
-                    Console.WriteLine($"Quarters: {quarters}");
-                    Console.WriteLine($"Dimes: {dimes}");
-                    Console.WriteLine($"Nickles: {nickles}");
-                    Console.WriteLine($"Pennies: {pennies}");
-                    Console.WriteLine();
-
-
-                    foreach (var item in vm.ItemsBought)
-                    {
-                        Console.WriteLine($"You bought a {item.Type}!");
-                        System.Threading.Thread.Sleep(600);
-                        Console.Beep(1955, 65);
-                        Console.Beep(1955, 50);
-                        Console.WriteLine();
-                        Console.WriteLine(item.MakeSound());
-                        Console.WriteLine();
-                        System.Threading.Thread.Sleep(950);
-                    }
-                    Console.WriteLine();
-                    Console.WriteLine("BYE-BYE :)");
-                    System.Threading.Thread.Sleep(400);
-                    Console.Beep(1307, 75);
-                    Console.SetWindowSize(104, 24);
-                    System.Threading.Thread.Sleep(400);
-                    Console.Beep(1300, 75);
-                    Console.SetWindowSize(52, 12);
-                    System.Threading.Thread.Sleep(400);
-                    Console.Beep(1107, 75);
-                    Console.SetWindowSize(26, 6);
-                    System.Threading.Thread.Sleep(400);
-                    Console.Beep(907, 75);
-                    Console.SetWindowSize(13, 3);
-                    Environment.Exit(1);
+                    return;
                 }
                 else
                 {
@@ -106,6 +61,64 @@ namespace Capstone.CLIs
             }
         }
 
+        private static void ResizeAndExitWindow()
+        {
+            Console.WriteLine();
+            Console.WriteLine("BYE-BYE :)");
+            System.Threading.Thread.Sleep(400);
+            Console.Beep(1307, 75);
+            Console.SetWindowSize(104, 24);
+            System.Threading.Thread.Sleep(400);
+            Console.Beep(1300, 75);
+            Console.SetWindowSize(52, 12);
+            System.Threading.Thread.Sleep(400);
+            Console.Beep(1107, 75);
+            Console.SetWindowSize(26, 6);
+            System.Threading.Thread.Sleep(400);
+            Console.Beep(907, 75);
+            Console.SetWindowSize(13, 3);
+        }
+
+        private static void PrintPurchasedItems()
+        {
+            foreach (var item in vm.ItemsBought)
+            {
+                Console.WriteLine($"You bought a {item.Type}!");
+                System.Threading.Thread.Sleep(600);
+                Console.Beep(1955, 65);
+                Console.Beep(1955, 50);
+                Console.WriteLine();
+                Console.WriteLine(item.MakeSound());
+                Console.WriteLine();
+                System.Threading.Thread.Sleep(950);
+            }
+        }
+
+        private static void PrintChangeDue()
+        {
+            decimal updatedChange = vm.Balance;
+            int quarters = 0;
+            int dimes = 0;
+            int nickles = 0;
+            int pennies = 0;
+
+            quarters = (int)(updatedChange / .25M);
+            updatedChange = updatedChange - (decimal)(quarters * .25);
+
+            dimes = (int)(updatedChange / .1M);
+            updatedChange = updatedChange - (decimal)(dimes * .1);
+
+            nickles = (int)(updatedChange / .05M);
+            updatedChange = updatedChange - (decimal)(nickles * .05);
+
+            // pennies = (int)(updatedChange / .01M);
+            //updatedChange = updatedChange - (decimal)(pennies * .01);
+            Console.WriteLine($"Quarters: {quarters}");
+            Console.WriteLine($"Dimes: {dimes}");
+            Console.WriteLine($"Nickles: {nickles}");
+            Console.WriteLine($"Pennies: {pennies}");
+            Console.WriteLine();
+        }
 
         public MainMenu(VendingMachine vm)
         {

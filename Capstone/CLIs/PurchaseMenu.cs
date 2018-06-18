@@ -104,10 +104,6 @@ namespace Capstone.CLIs
                         Console.WriteLine("Item Dispensed.");
                         Console.WriteLine();
                     }
-
-
-
-
                 }
                 else if (userInput == "3")
                 {
@@ -120,8 +116,9 @@ namespace Capstone.CLIs
                 else if (userInput == "4")
                 {
                     Console.Clear();
-                    MainMenu mainMenu = new MainMenu(vm);
-                    mainMenu.Display();
+                    return;
+                    //MainMenu mainMenu = new MainMenu(vm);
+                    //mainMenu.Display();
 
                     //<-- breaks off the whileloop and because it's the end of the line for the entire method so it pops off the stack and returns to the main menu
                 }

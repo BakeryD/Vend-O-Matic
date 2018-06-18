@@ -10,6 +10,7 @@ namespace Capstone.Classes
     public class FileWriter
     {
         public string Path { get; }
+
         /// <summary>
         /// Adds the item sold, type, price and time of transaction to Log.txt
         /// </summary>
@@ -24,17 +25,23 @@ namespace Capstone.Classes
                 sw.Dispose();
             }
 
-            using (StreamWriter sw = new StreamWriter(Path, true))
+            try
             {
-
-                var itemSold = t.Item.Name;
-                var itemType = t.Item.Type;
-                var itemPrice = t.Item.Price;
-                var time = t.Time;
-                sw.WriteLine($"{itemSold,20}{itemType.ToString(),10}{itemPrice.ToString("C2"),15}\t SOLD AT \t{time} ");
+                using (StreamWriter sw = new StreamWriter(Path, true))
+                {
+                    var itemSold = t.Item.Name;
+                    var itemType = t.Item.Type;
+                    var itemPrice = t.Item.Price;
+                    var time = t.Time;
+                    sw.WriteLine($"{itemSold,20}{itemType.ToString(),10}{itemPrice.ToString("C2"),15}\t SOLD AT \t{time} ");
+                }
             }
-
+            catch(IOException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
+
         public void GenerateSalesReport(List<Transaction> salesLog)
         {
             string salesLogPath= System.IO.Path.Combine(Environment.CurrentDirectory, "SalesReport.txt");
@@ -60,7 +67,6 @@ namespace Capstone.Classes
                 }
                 catch (IOException ex)
                 {
-
                     Console.WriteLine(ex.Message+"Error Generating Sales Report"); ;
                 }
             }
