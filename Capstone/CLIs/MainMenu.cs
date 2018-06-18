@@ -42,6 +42,7 @@ namespace Capstone.CLIs
                 }
                 else if (userInput.ToUpper() == "Q")
                 {
+                    vm.FW.GenerateSalesReport(vm.TransactionLog);
                     Console.BackgroundColor = ConsoleColor.DarkMagenta;
                     Console.Clear();
                     Console.WriteLine();
