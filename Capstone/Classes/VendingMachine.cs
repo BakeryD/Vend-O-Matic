@@ -73,6 +73,7 @@ namespace Capstone.Classes
             this.Inventory[userSelection].Remove(itemToBuy);
             //REMOVE COST OF ITEM FROM MONEY USER INSERTED
             Balance -= itemToBuy.Price;
+            //IF USER HAS BOUGHT THE LAST ITEM, REMOVE FROM INVENTORY DICTIONARY
             if (Inventory[userSelection].Count==0)
             {
                 Inventory.Remove(userSelection);
